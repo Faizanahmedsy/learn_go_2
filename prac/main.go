@@ -10,7 +10,6 @@ func main() {
 	result, err := sum(22, 55)
 
 	if err != nil {
-
 		fmt.Println("err", err)
 	} else {
 		fmt.Println("resp", result)
