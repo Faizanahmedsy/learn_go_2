@@ -9,9 +9,18 @@ func main() {
 	// Record the start time
 	start := time.Now()
 
-	// Loop that prints numbers from 0 to 999
-	for i := 0; i < 1000; i++ {
+	// for Loop
+	for i := 0; i < 10; i++ {
 		fmt.Println(i)
+	}
+
+	//while loop
+
+	j := 0
+
+	for j < 10 {
+		fmt.Println("hey", j)
+		j++
 	}
 
 	// Record the end time
