@@ -12,13 +12,13 @@ func main() {
 	fmt.Println("Party started")
 
 	// Increment the WaitGroup counter by 1
-	wg.Add(1)
+	wg.Add(2)
 
 	// Launch the track_faizan goroutine and pass the WaitGroup pointer to it -  means that we are going to wait for faizan to come and we will not finish the party till then
 	go track_faizan(&wg)
 
 	// Launch the other goroutines without involving them in the WaitGroup
-	go track_aaftab()
+	go track_aaftab(&wg)
 	go tracK_aaqib()
 	go track_saad()
 
@@ -30,7 +30,7 @@ func main() {
 }
 
 func track_faizan(wg *sync.WaitGroup) {
-	fmt.Println("Faizan is coming")
+	fmt.Println("Faizan	 is coming")
 	time.Sleep(5 * time.Second)
 	fmt.Println("Faizan came after 5 second")
 
@@ -38,20 +38,22 @@ func track_faizan(wg *sync.WaitGroup) {
 	defer wg.Done()
 }
 
-func track_aaftab() {
+func track_aaftab(wg *sync.WaitGroup) {
 	fmt.Println("Aaftab is coming")
-	time.Sleep(12 * time.Second)
-	fmt.Println("Aaftab came after 2 seconds")
+	time.Sleep(10 * time.Second)
+	fmt.Println("Aaftab came after 10 seconds")
+	defer wg.Done()
+
 }
 
 func tracK_aaqib() {
 	fmt.Println("Aaqib is coming")
 	time.Sleep(12 * time.Second)
-	fmt.Println("Aaqib came after 3 seconds")
+	fmt.Println("Aaqib came after 12 seconds")
 }
 
 func track_saad() {
 	fmt.Println("Saad is coming")
-	time.Sleep(12 * time.Second)
-	fmt.Println("Saad came after 4 seconds")
+	time.Sleep(14 * time.Second)
+	fmt.Println("Saad came after 14 seconds")
 }
