@@ -11,14 +11,14 @@ func main() {
 	var wg sync.WaitGroup
 	fmt.Println("Party started")
 
-	// Increment the WaitGroup counter by 1
+	// Increment the WaitGroup counter by 2
 	wg.Add(2)
 
 	// Launch the track_faizan goroutine and pass the WaitGroup pointer to it -  means that we are going to wait for faizan to come and we will not finish the party till then
 	go track_faizan(&wg)
+	go track_aaftab(&wg)
 
 	// Launch the other goroutines without involving them in the WaitGroup
-	go track_aaftab(&wg)
 	go tracK_aaqib()
 	go track_saad()
 
